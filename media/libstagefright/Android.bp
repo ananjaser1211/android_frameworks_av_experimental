@@ -299,6 +299,7 @@ cc_library_static {
         "libnetd_client",
         "libutils",
         "libstagefright_foundation",
+        "libstagefright_omx_utils",
         "libandroid",
         "android.hidl.allocator@1.0",
         "android.hidl.memory@1.0",
