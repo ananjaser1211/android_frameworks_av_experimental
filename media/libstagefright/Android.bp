@@ -200,6 +200,7 @@ cc_library_shared {
     ],
 
     cflags: [
+	"-DUSE_LEGACY_RESCALING",
         "-Wno-multichar",
         "-Werror",
         "-Wno-error=deprecated-declarations",
