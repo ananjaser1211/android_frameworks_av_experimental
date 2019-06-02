@@ -81,6 +81,7 @@ cc_library_static {
     name: "libstagefright_mpeg2extractor",
 
     srcs: [
+        "FFMPEGSoftCodec.cpp",
         "Utils.cpp",
         "MediaSource.cpp",
         "HevcUtils.cpp",
@@ -90,6 +91,9 @@ cc_library_static {
         "liblog",
         "libmedia",
         "libmedia_omx",
+        "libstagefright_omx_utils",
+        "android.hidl.allocator@1.0",
+        "android.hidl.memory@1.0",
     ],
 
     export_include_dirs: [
@@ -101,6 +105,11 @@ cc_library_static {
         "-Werror",
         "-Wno-error=deprecated-declarations",
         "-Wall",
+    ],
+
+    include_dirs: [
+        // FFMPEG plugin
+        "external/stagefright-plugins/include"
     ],
 
     sanitize: {
@@ -132,6 +141,7 @@ cc_library {
         "DataSourceFactory.cpp",
         "DataURISource.cpp",
         "ClearFileSource.cpp",
+        "FFMPEGSoftCodec.cpp",
         "FileSource.cpp",
         "FrameDecoder.cpp",
         "HTTPBase.cpp",
@@ -224,6 +234,11 @@ cc_library {
         "media_ndk_headers",
     ],
 
+    include_dirs: [
+        // FFMPEG plugin
+        "external/stagefright-plugins/include"
+    ],
+
     export_shared_lib_headers: [
         "libgui",
         "libhidlmemory",
@@ -266,6 +281,7 @@ cc_library_static {
     srcs: [
         "ClearFileSource.cpp",
         "DataURISource.cpp",
+        "FFMPEGSoftCodec.cpp",
         "HTTPBase.cpp",
         "HevcUtils.cpp",
         "MediaClock.cpp",
@@ -284,7 +300,16 @@ cc_library_static {
         "libutils",
         "libstagefright_foundation",
         "libandroid",
+        "android.hidl.allocator@1.0",
+        "android.hidl.memory@1.0",
+        "android.hardware.media.omx@1.0",
     ],
+
+    include_dirs: [
+        // FFMPEG plugin
+        "external/stagefright-plugins/include"
+    ],
+
 
     static_libs: [
         "libmedia_player2_util",
@@ -317,4 +342,3 @@ cc_library_static {
         ],
     },
 }
-
