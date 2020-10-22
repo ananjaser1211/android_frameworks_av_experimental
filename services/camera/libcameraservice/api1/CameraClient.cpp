@@ -545,6 +545,8 @@ void CameraClient::releaseRecordingFrameHandle(native_handle_t *handle) {
         metadata->eType = kMetadataBufferTypeNativeHandleSource;
         metadata->pHandle = handle;
         mHardware->releaseRecordingFrame(dataPtr);
+        native_handle_close(handle);
+        native_handle_delete(handle);
     }
 }
 
