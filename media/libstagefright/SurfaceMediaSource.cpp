@@ -260,7 +260,7 @@ sp<MetaData> SurfaceMediaSource::getFormat()
 // |  kMetadataBufferTypeGrallocSource | sizeof(buffer_handle_t) |
 // --------------------------------------------------------------
 // Note: Call only when you have the lock
-static void passMetadataBuffer(MediaBuffer **buffer,
+static void passMetadataBuffer(MediaBufferBase **buffer,
         buffer_handle_t bufferHandle) {
     *buffer = new MediaBuffer(4 + sizeof(buffer_handle_t));
     char *data = (char *)(*buffer)->data();
